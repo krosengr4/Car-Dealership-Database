@@ -26,10 +26,9 @@ CREATE table vehicles(
     );
     
 CREATE table inventory(
-	inventory_id int auto_increment NOT NULL,
 	dealership_id int NOT NULL,
     vin int NOT NULL,
-    PRIMARY KEY(inventory_id)
+    PRIMARY KEY(vin)
     );
 
 CREATE table sales_contract(
@@ -67,6 +66,13 @@ INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer
 VALUES (37846, 2001, "Ford", "Ranger", "Yellow", "truck", 172544, 1995.0, false);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
 VALUES (44901, 2012, "Honda", "Civic", "Gray", "SUV", 103221, 6995.0, false);
+
+INSERT INTO inventory (dealership_id, vin)
+VALUES (2, 10112);
+INSERT INTO inventory (dealership_id, vin)
+VALUES (1, 37846);
+INSERT INTO inventory (dealership_id, vin)
+VALUES (1, 44901);
 
     
     
