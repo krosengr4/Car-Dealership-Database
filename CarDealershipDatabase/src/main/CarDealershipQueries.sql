@@ -54,6 +54,13 @@ CREATE table lease_contract(
     PRIMARY KEY(lease_contract_id)
     );
     
+INSERT INTO dealerships (name, address, phone)
+VALUES ("Codeo Cars", "2834 Old Codeo Cv.", "512-685-2489");
+INSERT INTO dealerships (name, address, phone)
+VALUES ("Dave's Drivin' Dealership", "6548 Automobile Lane", "652-685-4125");
+INSERT INTO dealerships (name, address, phone)
+VALUES ("Cars Cars Cars", "8946 Old Town Road", "346-673-6795");
+    
     
     
     
