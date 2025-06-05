@@ -14,11 +14,11 @@ CREATE table dealerships(
 CREATE table vehicles(
 	vehicle_id int,
     vin int NOT NULL,
-    yearMade int,
+    year_made int,
     make varchar(30),
     model varchar(30),
     color varchar(30),
-    vehicleType varchar(30),
+    vehicle_type varchar(30),
     odometer int,
     price float,
     sold boolean,
@@ -31,5 +31,16 @@ CREATE table inventory(
     vin int NOT NULL,
     PRIMARY KEY(inventory_id)
     );
+    
+CREATE table sales_contract(
+	sales_contract_id int auto_increment NOT NULL,
+    vin int NOT NULL,
+    contract_date varchar(50) NOT NULL,
+    customer_name varchar(50) NOT NULL,
+    customer_email varchar(50),
+    is_financed boolean,
+    PRIMARY KEY(sales_contract_id)
+    );
+    
     
     
