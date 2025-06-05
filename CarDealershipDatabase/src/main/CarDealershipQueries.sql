@@ -21,5 +21,15 @@ CREATE table vehicles(
     vehicleType varchar(30),
     odometer int,
     price float,
+    sold boolean,
     PRIMARY KEY (vehicle_id)
     );
+    
+CREATE table inventory(
+	inventory_id int auto_increment NOT NULL,
+	dealership_id int NOT NULL,
+    vin int NOT NULL,
+    PRIMARY KEY(inventory_id)
+    );
+    
+    
