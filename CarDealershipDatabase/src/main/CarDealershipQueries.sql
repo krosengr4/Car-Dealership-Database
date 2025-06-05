@@ -66,6 +66,10 @@ INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer
 VALUES (37846, 2001, "Ford", "Ranger", "Yellow", "truck", 172544, 1995.0, false);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
 VALUES (44901, 2012, "Honda", "Civic", "Gray", "SUV", 103221, 6995.0, false);
+INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
+VALUES (562488, 2007, "Honda", "Accord", "White", "sedan", 40223, 15999.0, true);
+INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
+VALUES (266547, 2019, "Audi", "R8", "Blue", "sport", 2500, 53599.0, false);
 
 INSERT INTO inventory (dealership_id, vin)
 VALUES (2, 10112);
