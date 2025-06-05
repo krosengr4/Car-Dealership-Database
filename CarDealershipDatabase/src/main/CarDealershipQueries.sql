@@ -31,7 +31,7 @@ CREATE table inventory(
     vin int NOT NULL,
     PRIMARY KEY(inventory_id)
     );
-    
+
 CREATE table sales_contract(
 	sales_contract_id int auto_increment NOT NULL,
     vin int NOT NULL,
@@ -39,8 +39,22 @@ CREATE table sales_contract(
     customer_name varchar(50) NOT NULL,
     customer_email varchar(50),
     is_financed boolean,
+    total_price float,
     PRIMARY KEY(sales_contract_id)
     );
+    
+CREATE table lease_contract(
+	lease_contract_id int auto_increment NOT NULL,
+    vin int NOT NULL,
+    contract_date varchar(50) NOT NULL,
+    customer_name varchar(50) NOT NULL,
+    customer_email varchar(50),
+    monthly_payment float,
+    total_price float,
+    PRIMARY KEY(lease_contract_id)
+    );
+    
+    
     
     
     
