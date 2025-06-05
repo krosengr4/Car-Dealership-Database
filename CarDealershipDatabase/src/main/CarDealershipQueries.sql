@@ -4,7 +4,7 @@ CREATE DATABASE car_dealership_db;
 use car_dealership_db;
 
 CREATE table dealerships(
-	dealership_id int auto_increment,
+	dealership_id int auto_increment NOT NULL,
     name varchar(50),
     address varchar(50),
     phone varchar(12),
@@ -12,7 +12,7 @@ CREATE table dealerships(
     );
     
 CREATE table vehicles(
-	vehicle_id int,
+	vehicle_id int auto_increment NOT NULL,
     vin int NOT NULL,
     year_made int,
     make varchar(30),
@@ -60,6 +60,14 @@ INSERT INTO dealerships (name, address, phone)
 VALUES ("Dave's Drivin' Dealership", "6548 Automobile Lane", "652-685-4125");
 INSERT INTO dealerships (name, address, phone)
 VALUES ("Cars Cars Cars", "8946 Old Town Road", "346-673-6795");
+
+INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
+VALUES (10112, 1993, "Ford", "Explorer", "Red", "SUV", 525123, 995.0, false);
+INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
+VALUES (37846, 2001, "Ford", "Ranger", "Yellow", "truck", 172544, 1995.0, false);
+INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
+VALUES (44901, 2012, "Honda", "Civic", "Gray", "SUV", 103221, 6995.0, false);
+
     
     
     
