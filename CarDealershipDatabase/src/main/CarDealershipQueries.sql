@@ -10,7 +10,7 @@ CREATE table dealerships(
     phone varchar(12),
     PRIMARY KEY (dealership_id)
     );
-    
+
 CREATE table vehicles(
 	vehicle_id int auto_increment NOT NULL,
     vin int NOT NULL,
@@ -32,25 +32,23 @@ CREATE table inventory(
     );
 
 CREATE table sales_contract(
-	sales_contract_id int auto_increment NOT NULL,
     vin int NOT NULL,
     contract_date varchar(50) NOT NULL,
     customer_name varchar(50) NOT NULL,
     customer_email varchar(50),
     is_financed boolean,
     total_price float,
-    PRIMARY KEY(sales_contract_id)
+    PRIMARY KEY(vin)
     );
     
 CREATE table lease_contract(
-	lease_contract_id int auto_increment NOT NULL,
     vin int NOT NULL,
     contract_date varchar(50) NOT NULL,
     customer_name varchar(50) NOT NULL,
     customer_email varchar(50),
     monthly_payment float,
     total_price float,
-    PRIMARY KEY(lease_contract_id)
+    PRIMARY KEY(vin)
     );
     
 INSERT INTO dealerships (name, address, phone)
@@ -69,7 +67,7 @@ VALUES (44901, 2012, "Honda", "Civic", "Gray", "SUV", 103221, 6995.0, false);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
 VALUES (562488, 2007, "Honda", "Accord", "White", "sedan", 40223, 15999.0, true);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
-VALUES (266547, 2019, "Audi", "R8", "Blue", "sport", 2500, 53599.0, false);
+VALUES (266547, 2019, "Audi", "R8", "Blue", "sport", 2500, 53599.0, true);
 
 INSERT INTO inventory (dealership_id, vin)
 VALUES (2, 10112);
@@ -78,8 +76,8 @@ VALUES (1, 37846);
 INSERT INTO inventory (dealership_id, vin)
 VALUES (1, 44901);
 
-    
-    
-    
-    
-    
+INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, is_financed, total_price)
+VALUES (562488, "2025-06-05", "Kevin Rosengren", "kevin@gmail.com", false, 17393.95);
+INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, is_financed, total_price)
+VALUES (266547, "2025-06-05", "Ronald McDonald", "lovin'it@mcdonalds.mail", false, 56873.95);
+
