@@ -32,13 +32,15 @@ CREATE table inventory(
     );
 
 CREATE table sales_contract(
+	sales_contract_id int auto_increment NOT NULL,
+    dealership_id int NOT NULL,
     vin int NOT NULL,
     contract_date varchar(50) NOT NULL,
     customer_name varchar(50) NOT NULL,
     customer_email varchar(50),
     is_financed boolean,
     total_price float,
-    PRIMARY KEY(vin)
+    PRIMARY KEY(sales_contract_id)
     );
     
 CREATE table lease_contract(
@@ -59,7 +61,7 @@ INSERT INTO dealerships (dealership_name, address, phone)
 VALUES ("Cars Cars Cars", "8946 Old Town Road", "346-673-6795");
 
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
-VALUES (10112, 1993, "Ford", "Explorer", "Red", "SUV", 525123, 995.0, false);
+VALUES (10112, 1993, "Ford", "Explorer", "Red", "SUV", 525123, 995.0, true);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
 VALUES (37846, 2001, "Ford", "Ranger", "Yellow", "truck", 172544, 1995.0, false);
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
@@ -75,8 +77,14 @@ INSERT INTO inventory (dealership_id, vin)
 VALUES (1, 37846);
 INSERT INTO inventory (dealership_id, vin)
 VALUES (1, 44901);
+INSERT INTO inventory (dealership_id, vin)
+VALUES (1, 562488);
+INSERT INTO inventory (dealership_id, vin)
+VALUES (3, 266547);
 
-INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, is_financed, total_price)
-VALUES (562488, "2025-06-05", "Kevin Rosengren", "kevin@gmail.com", false, 17393.95);
-INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, is_financed, total_price)
-VALUES (266547, "2025-06-05", "Ronald McDonald", "lovin'it@mcdonalds.mail", false, 56873.95);
+INSERT INTO sales_contract (vin, dealership_id, contract_date, customer_name, customer_email, is_financed, total_price)
+VALUES (562488, 1, "2025-06-05", "Kevin Rosengren", "kevin@gmail.com", false, 17393.95);
+INSERT INTO sales_contract (vin, dealership_id, contract_date, customer_name, customer_email, is_financed, total_price)
+VALUES (266547, 2, "2025-06-05", "Ronald McDonald", "lovin'it@mcdonalds.mail", false, 56873.95);
+INSERT INTO sales_contract (vin, dealership_id, contract_date, customer_name, customer_email, is_financed, total_price)
+VALUES (10112, 1, "2021-09-28", "Dana Wyatt", "dana@texas.com", false, 1439.75);

@@ -1,3 +1,9 @@
+SELECT * from vehicles;
+SELECT * from inventory;
+SELECT * from dealerships;
+SELECT * from sales_contract;
+
+
 -- Car Dealership Test Scripts
 use car_dealership_db;
 
@@ -6,34 +12,31 @@ SELECT * from dealerships;
 
 -- Question 2
 SELECT vehicles.make, vehicles.model, vehicles.color, vehicles.vin, dealership_id from vehicles
-right join inventory 
-on inventory.dealership_id = dealership_id
-where dealership_id = (SELECT dealership_id from dealerships
-	where dealership_name like "%Codeo%");
+left join inventory 
+on inventory.vin = vehicles.vin
+where inventory.dealership_id = (SELECT dealership_id from dealerships
+	where dealership_name like "Codeo Cars");
     
 -- Question 3
 SELECT * from vehicles
 where vin = 266547;
 
 -- Question 4
-SELECT * from dealerships
-left join inventory 
-on inventory.vin = vin
-where vin = 44901;
-
-
-SELECT * from vehicles;
-SELECT * from inventory;
-SELECT * from dealerships;
-
-use northwind;
-
-SELECT orders.OrderID, orders.OrderDate, orders.ShipName, orders.ShipAddress, ProductID, ProductName from orders
-left join `order details` on 
-`order details`.ProductID = ProductID
-where ProductID = (SELECT ProductID from products
-		where ProductName = "Sasquatch Ale");
-        
-SELECT * FROM orders;
-SELECT * from products;
-SELECT * from `order details`;
+SELECT dealerships.dealership_id, dealerships.dealership_name, vin from dealerships
+left join inventory
+on inventory.dealership_id = dealerships.dealership_id
+where vin = (SELECT vin from vehicles
+	where vin = 10112);
+    
+-- Question 5
+SELECT dealerships.dealership_id, dealerships.dealership_name, vin from dealerships
+left join inventory
+on inventory.dealership_id = dealerships.dealership_id
+where vin = (SELECT vin from vehicles 
+	where color = "blue" and make = "Audi" and model = "R8");
+    
+-- Question 6
+SELECT sales_contract.*, dealerships.dealership_id from sales_contract
+inner join dealerships
+on sales_contract.dealership_id = dealerships.dealership_id
+where contract_date like "2021%";
