@@ -5,14 +5,13 @@ use car_dealership_db;
 
 CREATE table dealerships(
 	dealership_id int auto_increment NOT NULL,
-    name varchar(50),
+    dealership_name varchar(50),
     address varchar(50),
     phone varchar(12),
     PRIMARY KEY (dealership_id)
     );
 
 CREATE table vehicles(
-	vehicle_id int auto_increment NOT NULL,
     vin int NOT NULL,
     year_made int,
     make varchar(30),
@@ -22,11 +21,12 @@ CREATE table vehicles(
     odometer int,
     price float,
     sold boolean,
-    PRIMARY KEY (vehicle_id)
+    PRIMARY KEY (vin)
     );
     
 CREATE table inventory(
 	dealership_id int NOT NULL,
+    -- vehicle_id int NOT NULL,
     vin int NOT NULL,
     PRIMARY KEY(vin)
     );
@@ -51,11 +51,11 @@ CREATE table lease_contract(
     PRIMARY KEY(vin)
     );
     
-INSERT INTO dealerships (name, address, phone)
+INSERT INTO dealerships (dealership_name, address, phone)
 VALUES ("Codeo Cars", "2834 Old Codeo Cv.", "512-685-2489");
-INSERT INTO dealerships (name, address, phone)
+INSERT INTO dealerships (dealership_name, address, phone)
 VALUES ("Dave's Drivin' Dealership", "6548 Automobile Lane", "652-685-4125");
-INSERT INTO dealerships (name, address, phone)
+INSERT INTO dealerships (dealership_name, address, phone)
 VALUES ("Cars Cars Cars", "8946 Old Town Road", "346-673-6795");
 
 INSERT INTO vehicles (vin, year_made, make, model, color, vehicle_type, odometer, price, sold)
