@@ -80,4 +80,3 @@ INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, i
 VALUES (562488, "2025-06-05", "Kevin Rosengren", "kevin@gmail.com", false, 17393.95);
 INSERT INTO sales_contract (vin, contract_date, customer_name, customer_email, is_financed, total_price)
 VALUES (266547, "2025-06-05", "Ronald McDonald", "lovin'it@mcdonalds.mail", false, 56873.95);
-
